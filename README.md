@@ -1,2 +1,0 @@
-# TETRIS-GAME-
-Play Tetris 

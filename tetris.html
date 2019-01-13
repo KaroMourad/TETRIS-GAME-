@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Tetris</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./tetris.css">
+</head>
+<body>
+		<div id="container">
+			<div>
+				<div id="nextTetro"></div>
+				<h1 style="position: absolute;top: 33%;left: 16%;">Next Tetro</h1>
+			</div>
+			<div>
+				<span id="score"></span>
+				<div id="border" tabindex="1"></div>
+				<button id="pause" tabindex="-1">Pause</button>
+			</div>
+						
+			<div id="contain">
+				<div id="boardResOrNew">
+					<div id="togglebgm">
+						<img style="width: 50px;height: 50px" src="Mute_Icon.svg" alt="Mute_Icon" id="muteidimg">
+						<img style="width: 50px;height: 50px" src="Speaker_Icon.svg" alt="Speaker_Icon" id="unmuteidimg">
+					</div>
+					<div id="gameover">Game Over</div>
+					<div id="bestscore">Best Score</div>
+					<div id="boardSizes">
+						  <label for="bigboard" class="choise">
+						  	<input type="radio" id="bigboard" name="board" value="bigb">Big Board
+						  </label>
+						   <label for="defaultboard" class="choise">
+						  	<input type="radio" id="defaultboard" name="board" value="defb" checked>Default Board
+						  </label>	
+					</div>
+					<div class="containbutts">
+						<button id="play" tabindex="1">New Game</button>
+						<button id="resume" tabindex="2">Resume</button>
+					</div>
+				</div> 
+			</div>
+		</div>
+	
+	<div>	
+		<audio  autoplay loop id="audioid"> <!--firefox supporting, chrome is not support -->
+		  <source  src="tetris.mp3" type="audio/mp3">
+		</audio>
+
+		<audio preload="auto" id="audiogameover"> <!--firefox supporting, chrome is not support -->
+		  <source  src="tetrisgameover.mp3" type="audio/mp3">
+		</audio>
+	</div>
+
+	<script src="./tetris.js"></script>
+</body>
+</html>

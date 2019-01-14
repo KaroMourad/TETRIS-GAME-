@@ -38,9 +38,9 @@ function drawBoard() {
 function drawSquare(x,y,color) {
 	let cur  = document.getElementById(`${y}-${x}`);
 	if(cur) {
-		cur.remove();
+		cur.remove();//replace not only add elements
 	}
-	const el = 25;
+	const el = 25;//square size 25px*25px
 	let square = document.createElement("div");
 	border.appendChild(square);
 	square.setAttribute("id",`${y}-${x}`);
@@ -92,13 +92,13 @@ let currentTetro;
 let currState ;
 let score = 0;
 let x = 3;
-let y = -2;
+let y = 0;
 let probel = false;
 audioid.muted = true;
 audiogameover.muted = true;
 
 function randomColor() {
-	
+
 	return colors[Math.floor(Math.random()*colors.length)];
 }
 function randomTetro() { 
@@ -114,7 +114,6 @@ function draw(piece) {
 			}
 		}
 	}
-	currScor.innerText = `Score: ${score}`; 
 }
 function rotateLeft(piece) {
 	let arr = JSON.parse(JSON.stringify( piece ));
@@ -211,6 +210,7 @@ function moveDown(piece) {
 	}
 }
 function newGame() {
+	currScor.innerText = `Score: ${score}`; 
 	document.addEventListener("keydown",CONTROL);
 	if(!currentTetro && !color) {
 		currentTetro = randomTetro();
@@ -231,9 +231,9 @@ function newGame() {
   		next.removeChild(next.childNodes[0]);
 	}
 
-	drawNextTetro();//draw next tetro 
+	drawNextTetro();
 
-	let timeinterval = 500-score/3;//more score faster game 
+	let timeinterval = 600-score/3;//more score faster game 
 	if(timeinterval <= 100) { timeinterval = 100; }
 	draw(currState);
 	timeset = setInterval(function(){
@@ -294,6 +294,7 @@ function lock() {
 				board[0][c] = squareColor;
 			}
 			score += 10;
+
 			if(score > bestScore) {
 				bestScore = score;
 			}
@@ -301,7 +302,6 @@ function lock() {
 	}
 	drawBoard();
 }
-
 
 
 function CONTROL(event) {
@@ -335,7 +335,6 @@ function CONTROL(event) {
 	}
 }
 function nextTetromino() {
-
 	let nextTetro = randomTetro();
 	let nextColor = randomColor();
 	return [nextTetro,nextColor];
